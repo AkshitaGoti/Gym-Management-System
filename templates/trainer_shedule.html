@@ -1,0 +1,46 @@
+ 
+{% extends "admin.html" %}
+ 
+{% block title %}shedule trainer{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 style="text-align:center;color:white;">Set Trainer Shift</h2>
+            <form method="POST" action="/add_trainer_shedule">
+                {% if msg %}
+                <p class="text-success text-center"><strong>{{ msg }}</strong></p>
+                {% endif %}
+                <div class="form-group">
+                    <label for="username"style="color:white;">Username:</label>
+                    <input type="text" class="form-control" id="username" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="shift" style="color:white;">Shift:</label>
+                    <select class="form-control" id="shift" name="shift" required>
+                        <option value="morning" style="color:white;">Morning</option>
+                        <option value="evening" style="color:white;">Evening</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date" style="color:white;">Start Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="date" style="color:white;">End Date:</label>
+                    <input type="date" class="form-control" id="end_date" name="to_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="start_time" style="color:white;">Start Time:</label>
+                    <input type="time" class="form-control" id="start_time" name="start_time" required>
+                </div>
+                <div class="form-group">
+                    <label for="end_time" style="color:white;">End Time:</label>
+                    <input type="time" class="form-control" id="end_time" name="end_time" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Set Shedule</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

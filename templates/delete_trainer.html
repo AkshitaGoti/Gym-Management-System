@@ -1,0 +1,30 @@
+{% extends "admin.html" %}
+{% block title %}delete trainer{% endblock title %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center"  style="min-height: 100vh; background-image: url('static/images/img1_login.webp'); background-size: cover; background-position: center;">
+    <div class="col-md-6">
+      <div class="card" style="max-width: 450px; margin: 0 auto;">
+        <div class="card-header text-primary text-center">
+          <h2 class="font-weight-bold" style="font-family: Arial, sans-serif; font-size: 24px;">Delete Trainer</h2> <!-- Updated font style and size -->
+        </div>
+        <div class="card-body">
+          <form action="/delete_trainer" method="post">
+            <div class="form-group">
+              {% if msg %}
+              <p class="text-danger text-center"><strong>{{ msg }}</strong></p>
+              {% endif %}
+              <label for="name" style="font-family: Arial, sans-serif; font-size: 16px;">Trainer Name :</label> <!-- Updated font style and size -->
+              <input type="text" name="name" class="form-control" id="name" placeholder="enter username as per database">
+            </div>
+            <div class="form-group">
+              <label for="password" style="font-family: Arial, sans-serif; font-size: 16px;">Password :</label> <!-- Updated font style and size -->
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-danger" style="font-family: Arial, sans-serif;">DELETE</button> <!-- Updated font style -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock body %}

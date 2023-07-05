@@ -1,0 +1,41 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%elif member%}
+{%extends "member.html"%}
+{%else%}
+{%extends "home.html"%}
+{%endif%}
+{% block title %}my staff{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center" style="color:white;">Members</h2>
+    
+    <table class="table table-bordered mt-4">
+        <thead class="thead-bi-lightbulb">
+            <tr>
+                <th style="color:white;">Username</th>
+                <th style="color:white;">Full Name</th>
+                <th style="color:white;">Email</th>
+                <th style="color:white;">Password</th> 
+                <th style="color:white;">Payment</th>
+                <th style="color:white;">Schedule Class</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(us_name|length) %}
+            <tr>
+                <td style="color:white;">{{us_name[i] }}</td>
+                <td style="color:white;">{{f_name[i]}}</td>
+                <td style="color:white;">{{email[i] }}</td>
+                <td style="color:white;">{{passw[i] }}</td>
+                <td style="color:white;">{{pay[i] }}</td>
+                <td style="color:white;"><a href="/shedule_class">Schedule Class</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

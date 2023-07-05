@@ -1,0 +1,96 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%elif member%}
+{%extends "member.html"%}
+{%else%}
+{%extends "home.html"%}
+{%endif%}
+{% block title %}shedule class{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 style="color:white;">Shift Form</h2>
+            <form method="POST" action="/shedule_class">
+                {% if msg %}
+                <p class="text-success text-center"><strong>{{ msg }}</strong></p>
+                {% endif %}
+                <div class="form-group">
+                    <label for="username" style="color:white;">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="shift" style="color:white;">Shift:</label>
+                    <select class="form-control" id="shift" name="shift" required>
+                        <option value="morning" style="color:white;">Morning</option>
+                        <option value="evening" style="color:white;">Evening</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date" style="color:white;">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="start_time" style="color:white;">Start Time:</label>
+                    <input type="time" class="form-control" id="start_time" name="start_time" required>
+                </div>
+                <div class="form-group">
+                    <label for="end_time" style="color:white;">End Time:</label>
+                    <input type="time" class="form-control" id="end_time" name="end_time" required>
+                </div>
+                <div class="form-group">
+                    <label for="ex_1" style="color:white;">Exercise 1:</label>
+                    <input type="text" class="form-control" id="exercise1" name="exercise1" required>
+                </div>
+                <div class="form-group">
+                    <label for="raps" style="color:white;">Raps of Exercise 1:</label>
+                    <input type="text" class="form-control" id="raps1" name="raps1" required>
+                </div>
+                <div class="form-group">
+                    <label for="ex_2" style="color:white;">Exercise 2:</label>
+                    <input type="text" class="form-control" id="exercise2" name="exercise2" required>
+                </div>
+                <div class="form-group">
+                    <label for="raps" style="color:white;">Raps of Exercise 2:</label>
+                    <input type="text" class="form-control" id="raps2" name="raps2" required>
+                </div>
+                <div class="form-group">
+                    <label for="ex_3" style="color:white;">Exercise 3:</label>
+                    <input type="text" class="form-control" id="exercise3" name="exercise3" required>
+                </div>
+                <div class="form-group">
+                    <label for="raps" style="color:white;">Raps of Exercise 3:</label>
+                    <input type="text" class="form-control" id="raps3" name="raps3" required>
+                </div>
+                <div class="form-group">
+                    <label for="ex_4" style="color:white;">Exercise 4:</label>
+                    <input type="text" class="form-control" id="exercise4" name="exercise4" required>
+                </div>
+                <div class="form-group">
+                    <label for="raps" style="color:white;">Raps of Exercise 4:</label>
+                    <input type="text" class="form-control" id="raps4" name="raps4" required>
+                </div>
+                <div class="form-group">
+                    <label for="ex_5" style="color:white;">Exercise 5:</label>
+                    <input type="text" class="form-control" id="exercise5" name="exercise5" required>
+                </div>
+                <div class="form-group">
+                    <label for="raps" style="color:white;">Raps of Exercise 5:</label>
+                    <input type="text" class="form-control" id="raps5" name="raps5" required>
+                </div>
+                <div class="form-group">
+                    <label for="performance" style="color:white;">Performance:</label>
+                    <select class="form-control" id="per" name="per" required>
+                        <option value="New Joining" style="color:white;">Newly Joined</option>
+                        <option value="Good keep it up !" style="color:white;">Good</option>
+                        <option value="Exelent Working !" style="color:white;">Exelent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Shedule</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

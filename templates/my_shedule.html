@@ -1,0 +1,35 @@
+{%extends "member.html"%}
+{% block title %}My shedule{% endblock title %}
+{% block body %}
+<div class="profile-container">
+    <img src="static/images/default-profile.jpg" alt="Profile Photo" class="profile-photo">
+    <h2 class="profile-name">{{username}}</h2>
+    
+    <div class="profile-details">
+      {%if msg%}
+      <h2 style="color:white;">{{msg}}</h2>
+      {%else%}
+      <h3 style="color:white;">Shedule</h3>
+      <p style="color:white;">Shift: {{shift}}</p>
+      <p style="color:white;">Date: {{date}}</p>
+      <p style="color:white;">Start Time: {{start_time}}</p>
+      <p style="color:white;">End Time: {{end_time}}</p>
+       
+      
+      <h3 style="color:white;">Exercise</h3>
+      <ul>
+        <li style="color:white;">{{ex1}} Raps: {{rp1}}</li> 
+        <li style="color:white;">{{ex2}} Raps: {{rp2}}</li> 
+        <li style="color:white;">{{ex3}} Raps: {{rp3}}</li> 
+        <li style="color:white;">{{ex4}} Raps: {{rp4}}</li> 
+        <li style="color:white;">{{ex5}} Raps: {{rp5}}</li> 
+      </ul>
+      
+      <h3 style="color:white;">My Performance</h3>
+       <h4 style="color:white;">{{performance}}</h4>
+     {%endif%}  
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock body %}

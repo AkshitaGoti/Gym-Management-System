@@ -1,0 +1,30 @@
+{% extends "admin.html" %}
+{% block title %}delete equip{% endblock title %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center"  style="min-height: 100vh; background-image: url('static/images/img1_login.webp'); background-size: cover; background-position: center;">
+    <div class="col-md-6">
+      <div class="card" style="max-width: 450px; margin: 0 auto;">
+        <div class="card-header text-primary text-center">
+          <h2 class="font-weight-bold" style="font-family: Arial, sans-serif; font-size: 24px;">Delete Eqiupment</h2> <!-- Updated font style and size -->
+        </div>
+        <div class="card-body">
+          <form action="/delete_equip" method="post">
+            <div class="form-group">
+              {% if msg %}
+              <p class="text-danger text-center"><strong>{{ msg }}</strong></p>
+              {% endif %}
+              <label for="equip_name" style="font-family: Arial, sans-serif; font-size: 16px;">Equipment Name :</label> <!-- Updated font style and size -->
+              <input type="text" name="equip_name" class="form-control" id="equip_name" placeholder="enter name as per database">
+            </div>
+            <div class="form-group">
+              <label for="quantity" style="font-family: Arial, sans-serif; font-size: 16px;">Quantity :</label> <!-- Updated font style and size -->
+              <input type=" text" name="quantity" class="form-control" id="quantity" placeholder="Enter the quantity">
+            </div>
+            <button type="submit" class="btn btn-danger" style="font-family: Arial, sans-serif;">DELETE</button> <!-- Updated font style -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock body %}

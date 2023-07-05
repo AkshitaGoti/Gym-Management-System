@@ -1,0 +1,36 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%else%}
+{%extends "member.html"%}
+{%endif%}
+{% block title %}My Profile{% endblock title %}
+{% block body %}
+<div class="profile-container">
+    <img src="static/images/default-profile.jpg" alt="Profile Photo" class="profile-photo">
+    <h2 class="profile-name" style="color:white;">{{username}}</h2>
+    
+    <div class="profile-details">
+      <h3 style="color:white">About Me</h3>
+      <p style="color:white">Email: {{email}}</p>
+      <p style="color:white">Age: {{age}}</p>
+      <p style="color:white">Height: {{height}}</p>
+      <p style="color:white">Weight: {{weight}} kg</p>
+      <p style="color:white">Experience: {{experiece}} years</p>
+      
+      <h3 style="color:white">Achievements</h3>
+      <ul>
+        <li style="color:white">{{achivements}}</li>
+        
+      </ul>
+      
+      <h3 style="color:white">Interests</h3>
+      <ul>
+        <li style="color:white">{{intrest}}</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock body %}

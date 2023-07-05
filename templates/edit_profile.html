@@ -1,0 +1,92 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%else%}
+{%extends "member.html"%}
+{%endif%}
+{% block title %}edit profile{% endblock title %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background-image: url('static/images/new.webp'); background-size: cover; background-position: center;">
+    <div class="col-md-6">
+      <div class="card" style="max-width: 450px; margin: 0 auto;background-color: transparent;border-color:blue;">
+        <div class="card-header text-primary text-center">
+          <h2 class="font-weight-bold" style="font-family: Arial, sans-serif; font-size: 24px;">Profile Setting</h2> <!-- Updated font style and size -->
+        </div>
+        <div class="card-body">
+          <form action="/edit_profile" method="post">
+            <div class="form-group">
+              {% if msg %}
+              <p class="text-success text-center"><strong>{{ msg }}</strong></p>
+              {% endif %}
+              <label for="username" style="font-family: Arial, sans-serif; font-size: 16px;color:white;">Username</label> <!-- Updated font style and size -->
+              {%if username%}
+              <input type="text" name="username" class="form-control" id="username" value="{{username}}" placeholder="Enter username">
+              {%else%}
+              <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+              {%endif%}
+            </div>
+            <div class="form-group">
+                <label for="email" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Email:</label> <!-- Updated font style and size -->
+                {%if email%}
+                <input type="Email" name="email" class="form-control" id="email"  value={{email}}  placeholder="email">
+                {%else%}
+                <input type="Email" name="email" class="form-control" id="email" placeholder="email">
+                {%endif%}
+              </div>
+            <div class="form-group">
+              <label for="age" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Age:</label> <!-- Updated font style and size -->
+              {%if age%}
+              <input type="text" name="age" class="form-control" id="age" value={{age}} placeholder="age">
+              {%else%}
+              <input type="text" name="age" class="form-control" id="age" placeholder="age">
+              {%endif%}
+            </div>
+            <div class="form-group">
+                <label for="height" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Height :</label> <!-- Updated font style and size -->
+                {%if height%}
+                <input type="text" name="height" class="form-control" id="height" value={{height}} placeholder="height">
+                {%else%}
+                <input type="text" name="height" class="form-control" id="height" placeholder="height">
+                {%endif%}
+              </div>
+              <div class="form-group">
+                <label for="weight" style="font-family: Arial, sans-serif; font-size: 16px;color:white">weight :</label> <!-- Updated font style and size -->
+                {%if weight%}
+                <input type="text" name="weight" class="form-control" value={{weight}} id="weight" placeholder="weight">
+                {%else%}
+                <input type="text" name="weight" class="form-control" id="weight" placeholder="weight">
+                {%endif%}
+              </div>
+              <div class="form-group">
+                <label for="experience" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Experience :</label> <!-- Updated font style and size -->
+                {%if experiece%}
+                <input type="text" name="experience" class="form-control" value={{experiece}} id="experience" placeholder="write your experience in years..">
+                {%else%}
+                <input type="text" name="experience" class="form-control" id="experience" placeholder="write your experience in years..">
+                {%endif%}
+              </div>
+              <div class="form-group">
+                <label for="achievements" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Achievements :</label> <!-- Updated font style and size -->
+                {%if achivements%}
+                <input type="text" name="achievements" class="form-control" id="achievements" value={{achivements}} placeholder="optional">
+                {%else%}
+                <input type="text" name="achievements" class="form-control" id="achievements"  placeholder="optional">
+                {%endif%}
+              </div>
+              <div class="form-group">
+                <label for="interests" style="font-family: Arial, sans-serif; font-size: 16px;color:white">Interests :</label> <!-- Updated font style and size -->
+                {%if intrest%}
+                <input type="text" name="interests" class="form-control" value={{intrest}} id="interests" placeholder="write your interests ">
+                {%else%}
+                <input type="text" name="interests" class="form-control" id="interests" placeholder="write your interests ">
+                {%endif%}
+              </div>
+            
+            <button type="save" class="btn btn-primary" style="font-family: Arial, sans-serif;">Save profile</button> <!-- Updated font style -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body%}

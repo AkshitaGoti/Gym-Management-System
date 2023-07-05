@@ -1,0 +1,21 @@
+{%extends "trainer.html"%}
+{% block title %}My shedule{% endblock title %}
+{% block body %}
+<div class="profile-container">
+    <img src="static/images/default-profile.jpg" alt="Profile Photo" class="profile-photo">
+    <h2 class="profile-name">{{username}}</h2>
+    {%if msg%}
+    <h1 style="color:white;">Shedule Not Set Yet !</h1>
+    {%else%}
+    <div class="profile-details">
+      <h3 style="color:white;">Shedule</h3>
+      <p style="color:white;">Shift: {{shift}}</p><br/>
+      <p style="color:white;">Start Date: {{date}}</p><br/>
+      <p style="color:white;">End Date:{{to_date}}</p><br/>
+      <p style="color:white;">Start Time: {{start_time}}</p><br/>
+      <p style="color:white;">End Time: {{end_time}}</p><br/>
+    </div>
+    {%endif%}
+</div>
+
+{% endblock body %}

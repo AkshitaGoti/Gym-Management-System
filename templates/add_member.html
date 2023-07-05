@@ -1,0 +1,75 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%elif member%}
+{%extends "member.html"%}
+{%endif%}
+{% block title %}adding trainer{% endblock title %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center"  style="min-height: 100vh; background-image: url('static/images/img1_login.webp'); background-size: cover; background-position: center;">
+  <div class="col-md-6">
+    <div class="card" style="max-width: 450px; margin: 0 auto;">
+      <div class="card-header text-primary text-center">
+        <h2 class="font-weight-bold">Add New Member</h2>
+        {%if msg%}
+        <p class="text-success text-center">{{msg}}</p>
+        {%elif msg1%}
+        <p class="text-success text-center">{{msg1}}</p>
+        {%endif%}
+      </div>
+      <div class="card-body">
+        <form onsubmit="return validatePassword()" action="/add_member" method='post'>
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Type name here..." required>
+          </div>
+          <div class="form-group">
+            <label for="email"> Contact Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="enter the mail id of Trainer" required>
+          </div>
+          <div class="form-group">
+            <label for="age"> Full Name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="write a secure password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="confirm your password " required>
+            <small id="password-error" class="form-text text-danger" style="display: none;">Password mismatch.</small>
+          </div>
+          <div class="form-group">
+            <label for="performance">Membership Type:</label>
+            <select class="form-control" id="per" name="member_type" required>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="platinum ">Platinum </option>
+            </select>
+        </div>
+          <button type="submit" class="btn btn-primary">Register Member</button>
+          <hr>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function validatePassword() {
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirm-password").value;
+  var passwordError = document.getElementById("password-error");
+  
+  if (password !== confirmPassword) {
+    passwordError.style.display = "block";
+    return false;
+  }
+  
+  return true;
+}
+</script>
+{% endblock body %}

@@ -1,0 +1,19 @@
+{%if admin%}
+{% extends "admin.html" %}
+{%elif trainer%}
+{%extends "trainer.html"%}
+{%elif member%}
+{%extends "member.html"%}
+{%else%}
+{%extends "home.html"%}
+{%endif%}
+{% block title %}discover{% endblock title %}
+{% block body %}
+<div class="image-container">
+    <img src="static/images/home.jpg" alt="Background Image">
+    <div class="centered-text" style="background-color:white;width:700px;height:200px;">
+        <h1 style="color:black;">Fitness zym</h1> 
+        <p>Fitness Gym is a premier fitness facility that caters to individuals seeking a transformative fitness experience. With state-of-the-art equipment, expert trainers, and a motivating atmosphere, Stoner Gym provides a comprehensive approach to health and fitness. </p>  
+    </div>
+</div>
+{% endblock body %}
